@@ -1,0 +1,155 @@
+/* ===== Sidebar ===== */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 900;
+    transition: transform 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+.sidebar-nav {
+    padding: 24px 0;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Navigation Items ===== */
+.nav-item {
+    display: block;
+    padding: 10px 24px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    background: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    text-align: left;
+    width: 100%;
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+    background-color: var(--hover-bg);
+}
+
+.nav-item.active {
+    color: var(--primary-blue);
+    border-left-color: var(--primary-blue);
+    background-color: var(--hover-bg);
+}
+
+/* ===== Navigation Groups ===== */
+.nav-group {
+    margin: 4px 0;
+}
+
+.nav-group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-group-header .chevron {
+    transition: transform 0.2s ease;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+}
+
+.nav-group-header.active .chevron {
+    transform: rotate(0deg);
+}
+
+.nav-group-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.nav-group-content.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.nav-subitem {
+    display: block;
+    padding: 8px 24px 8px 52px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-decoration: none;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.nav-subitem:hover {
+    color: var(--text-primary);
+    background-color: var(--hover-bg);
+}
+
+.nav-subitem.active {
+    color: var(--primary-blue);
+    border-left-color: var(--primary-blue);
+    background-color: var(--hover-bg);
+}
+
+/* ===== Content Margin for Sidebar ===== */
+.content {
+    margin-left: 280px;
+}
+
+/* ===== Sidebar Toggle Button (Mobile) ===== */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--primary-blue);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.05);
+}

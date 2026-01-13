@@ -1,0 +1,177 @@
+/* ===== Tablet & Mobile Responsive ===== */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .content {
+        padding: 32px 24px;
+    }
+
+    .card-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-input {
+        width: 180px;
+    }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 768px) {
+    /* Hide main navigation on mobile */
+    .main-nav {
+        display: none;
+    }
+
+    /* Stack nav items vertically */
+    .nav-right {
+        gap: 8px;
+    }
+
+    /* Smaller search bar */
+    .search-input {
+        width: 120px;
+        font-size: 13px;
+    }
+
+    /* Hide sidebar by default on mobile */
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    /* Remove left margin from content */
+    .content {
+        margin-left: 0;
+        padding: 24px 16px;
+    }
+
+    /* Show sidebar toggle button */
+    .sidebar-toggle {
+        display: flex;
+    }
+
+    /* Single column card grid */
+    .card-grid,
+    .card-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Smaller headings */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    /* Smaller AI button text */
+    .ai-button span {
+        display: none;
+    }
+
+    .nav-left {
+        gap: 16px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile: < 480px */
+@media (max-width: 480px) {
+    .top-nav {
+        height: 56px;
+    }
+
+    .container {
+        margin-top: 56px;
+    }
+
+    .sidebar {
+        top: 56px;
+        height: calc(100vh - 56px);
+        width: 260px;
+    }
+
+    .content {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    /* Hide search on very small screens */
+    .search-container {
+        display: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .top-nav,
+    .sidebar,
+    .sidebar-toggle,
+    .theme-toggle,
+    .ai-button,
+    .search-container {
+        display: none;
+    }
+
+    .content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #555;
+        --text-secondary: #CCC;
+    }
+
+    .card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
