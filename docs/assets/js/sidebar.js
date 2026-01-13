@@ -39,15 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update button icon based on state
         if (sidebar.classList.contains('show')) {
             this.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
-            `;
-        } else {
+<svg width="48" height="48" viewBox="0 -960 960 960"><path d="M464-376 306-533q-2-2-3.5-4.76-1.5-2.77-1.5-5.92.0-6.32 4.13-10.82 4.12-4.5 10.87-4.5h328q6.75.0 10.88 4.64 4.12 4.63 4.12 10.81.0 1.55-5 10.55L496-376q-3 3-7.06 5t-8.94 2q-4.87.0-8.94-2-4.06-2-7.06-5z"></path></svg>
+        `;
+	} else {
             this.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
+               <svg width="48" height="48" viewBox="0 -960 960 960"><path d="M316-4e2q-6.75.0-10.87-4.64-4.13-4.63-4.13-10.81.0-1.55 5-10.55l158-157q3-3 7.06-5 4.07-2 8.94-2 4.88.0 8.94 2t7.06 5l158 157q2 2 3.5 4.76 1.5 2.77 1.5 5.92.0 6.32-4.12 10.82-4.13 4.5-10.88 4.5H316z"></path></svg>
             `;
         }
     });
