@@ -1,0 +1,27 @@
+site_name: DevOps Documentations
+
+theme:
+  name: material
+  features:
+    - navigation.expand
+    - navigation.sections
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.tabs
+nav:
+  - Get Started:
+      - Overview: index.md
+      - Introduction to DevOps: get-started/introduction.md
+      - DevOps Toolchain Overview: get-started/tools.md
+
+  - Containerization:
+      - Overview: docker/index.md
+      - Docker Fundamentals: docker/docker-basics.md
+      - Docker Compose: docker/docker-compose.md
+      - Kubernetes Architecture and Core Concepts: kubernetes/k8s-architecture.md
+
+  - CI/CD Pipelines:
+      - Overview: cicd/index.md
+      - Jenkins End-to-End Pipeline Implementation: cicd/jenkins.md
+      - GitHub Actions for DevOps Automation: cicd/github-actions.md
+

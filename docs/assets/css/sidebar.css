@@ -1,9 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#toggleBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.layout {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1e293b;
+    color: #fff;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Hidden sidebar state */
+.hide-sidebar #sidebar {
+    transform: translateX(-100%);
+}
+
+.hide-sidebar #content {
+    margin-left: 0;
+}
 /* ===== Sidebar ===== */
 .sidebar {
     position: fixed;
     left: 0;
     top: 60px;
-    width: 280px;
+    width: 260px;
     height: calc(100vh - 60px);
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
@@ -39,6 +79,25 @@
     flex-direction: column;
 }
 
+/* Hidden sidebar */
+body.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+}
+
+/* Expand content when sidebar hidden */
+body.sidebar-collapsed .content {
+    margin-left: 0;
+}
+
+/* Toggle button style */
+.sidebar-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
 /* ===== Navigation Items ===== */
 .nav-item {
     display: block;
@@ -48,7 +107,7 @@
     font-weight: 400;
     text-decoration: none;
     transition: var(--transition);
-    border-left: 3px solid transparent;
+    border-left: 0px solid transparent;
     cursor: pointer;
     background: none;
     border-right: none;
@@ -76,21 +135,29 @@
 
 .nav-group-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    position: relative;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+/* Caret icon (right arrow) */
+.caret {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 6px solid #6b7280; /* gray */
+    transition: transform 0.25s ease;
 }
 
-.nav-group-header .chevron {
-    transition: transform 0.2s ease;
-    transform: rotate(-90deg);
-    flex-shrink: 0;
+.nav-group-header.active .caret {
+    transform: rotate(90deg);
 }
 
-.nav-group-header.active .chevron {
-    transform: rotate(0deg);
-}
 
 .nav-group-content {
     max-height: 0;
@@ -127,7 +194,8 @@
 
 /* ===== Content Margin for Sidebar ===== */
 .content {
-    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+    margin-left: 260px;
 }
 
 /* ===== Sidebar Toggle Button (Mobile) ===== */
